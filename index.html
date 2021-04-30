@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--Header and Menu Section-->
+    <header class="container">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a class="active" href="#">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Booking Section-->
+    <main class="main-content container">
+        <div class="booking-form">
+            <h3>Booking Flights</h3>
+            <div class="input-group">
+                <label for="">Flying From</label>
+                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+            </div>
+            <div class="input-group">
+                <label for="">Flying To</label>
+                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+            </div>
+            <div class="inputs">
+                <div class="input-group">
+                    <label" for="">Departure</label>
+                        <input class="inp-style" type="date" name="">
+                </div>
+                <div class="input-group">
+                    <label for="">Return</label>
+                    <input class="inp-style" type="date" name="">
+                </div>
+            </div>
+            <div class="input-group f-class">
+                <div>
+                    <label for="">First Class ($150)</label>
+                    <input class="inp-style inp-width" id="firstClassValue" type="number" name="">
+                </div>
+                <div class="plus-minus-btn">
+                    <button onclick="incrementFirstClassValue()">+</button>
+                    <button onclick="decrementFirstClassValue()">-</button>
+                </div>
+            </div>
+
+            <div class="input-group f-class">
+                <div>
+                    <label for="">Economy ($100)</label>
+                    <input class="inp-style inp-width" id="economyValue" type="number" name="number">
+                </div>
+                <div class="plus-minus-btn">
+                    <button onclick="incrementEconomyValue()">+</button>
+                    <button onclick="decrementEconomyValue()">-</button>
+                </div>
+            </div>
+            <div class="calculations">
+                <div class="amount">
+                    <div class="left">
+                        <p>Subtotal</p>
+                    </div>
+                    <div class="right">
+                        <p id="subtotal"></p>
+                    </div>
+                </div>
+
+                <div class="amount">
+                    <div class="left">
+                        <p>Charge 10% VAT</p>
+                    </div>
+                    <div class="right">
+                        <p>$50</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="amount">
+                    <div class="left">
+                        <h4>Total</h4>
+                    </div>
+                    <div class="right">
+                        <p>$550</p>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-style">Book Now</button>
+        </div>
+
+        <div class="booking-content">
+            <h1>discover <br> around the world</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
+                veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
+                voluptatibus quam</p>
+        </div>
+        </section>
+
+        <!--Thank You-->
+        <script>
+            // first class part
+
+            function incrementFirstClassValue() {
+                var value = parseInt(document.getElementById('firstClassValue').value, 10);
+                value = isNaN(value) ? 0 : value;
+                value++;
+                document.getElementById('firstClassValue').value = value;
+            }
+
+            function decrementFirstClassValue() {
+                var value = parseInt(document.getElementById('firstClassValue').value, 10);
+                value = isNaN(value) ? 0 : value;
+                value--;
+                document.getElementById('firstClassValue').value = value;
+                if (value < 0) {
+                    alert('value cannot be negative')
+                    return value = 0
+                }
+            }
+
+            // first class part end
+
+            // economy part start
+
+            function incrementEconomyValue() {
+                var value = parseInt(document.getElementById('economyValue').value, 10);
+                value = isNaN(value) ? 0 : value;
+                value++;
+                document.getElementById('economyValue').value = value;
+
+            }
+
+            function decrementEconomyValue() {
+                var value = parseInt(document.getElementById('economyValue').value, 10);
+                value = isNaN(value) ? 0 : value;
+                value--;
+
+                document.getElementById('economyValue').value = value;
+
+                if (value < 0) {
+                    alert('value cannot be negative')
+                    return value = 0
+                }
+            }
+
+            // economy part end
+
+
+            // subtotal parts start
+            let firstTotal = document.getElementById("economyValue").value
+
+            let secondTotal = parseFloat(document.getElementById("firstClassValue").value)
+
+            document.getElementById("subtotal").value = parseFloat(firstTotal) + parseFloat(secondTotal)
+
+
+        </script>
+
+</body>
+
+</html>
